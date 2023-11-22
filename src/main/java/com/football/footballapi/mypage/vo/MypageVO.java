@@ -1,6 +1,11 @@
 package com.football.footballapi.mypage.vo;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import member.vo.MemberMasterVO;
+
 @Data
-public class MypageVO {
-    Integer memNo;
+@EqualsAndHashCode(callSuper = false)
+public class MypageVO extends MemberMasterVO {
+    Integer TotalPoint;
 }
