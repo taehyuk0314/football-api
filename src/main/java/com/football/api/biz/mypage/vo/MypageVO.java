@@ -1,6 +1,6 @@
-package com.football.footballapi.biz.mypage.vo;
+package com.football.api.biz.mypage.vo;
 
-import com.football.footballapi.biz.member.vo.MemberMasterVO;
+import com.football.api.biz.member.vo.MemberMasterVO;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

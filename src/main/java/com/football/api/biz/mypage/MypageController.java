@@ -1,9 +1,9 @@
-package com.football.footballapi.biz.mypage;
+package com.football.api.biz.mypage;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.football.footballapi.biz.mypage.vo.MypageVO;
+import com.football.api.biz.mypage.vo.MypageVO;
 
 @RestController
 public class MypageController {

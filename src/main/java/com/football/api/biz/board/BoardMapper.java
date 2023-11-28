@@ -1,9 +1,9 @@
-package com.football.footballapi.biz.board;
+package com.football.api.biz.board;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.football.footballapi.biz.board.vo.BoardMasterVO;
+import com.football.api.biz.board.vo.BoardMasterVO;
 
 @Mapper
 public interface BoardMapper {

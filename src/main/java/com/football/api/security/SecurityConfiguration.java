@@ -1,4 +1,4 @@
-package com.football.footballapi.security;
+package com.football.api.security;
 
 
 import org.springframework.context.annotation.Bean;
