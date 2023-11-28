@@ -1,15 +1,15 @@
-package com.football.footballapi.mypage;
+package com.football.footballapi.biz.mypage;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.football.footballapi.mypage.vo.MypageVO;
+import com.football.footballapi.biz.mypage.vo.MypageVO;
 
 @RestController
 public class MypageController {
 
 	@GetMapping("/mypage/{memNo}")
-	public MypageVO selectBoard(MypageVO vo) {
+	public MypageVO selectProfile(MypageVO vo) {
 		return vo;
 	}    
 }

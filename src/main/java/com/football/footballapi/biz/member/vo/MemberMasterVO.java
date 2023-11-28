@@ -1,4 +1,4 @@
-package member.vo;
+package com.football.footballapi.biz.member.vo;
 
 import lombok.Data;
 

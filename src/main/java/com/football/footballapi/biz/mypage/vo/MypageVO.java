@@ -1,8 +1,9 @@
-package com.football.footballapi.mypage.vo;
+package com.football.footballapi.biz.mypage.vo;
+
+import com.football.footballapi.biz.member.vo.MemberMasterVO;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import member.vo.MemberMasterVO;
 
 @Data
 @EqualsAndHashCode(callSuper = false)

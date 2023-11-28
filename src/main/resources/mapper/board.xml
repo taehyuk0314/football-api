@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.football.api.biz.board.BoardMapper">
+<!-- 게시물 조회 -->
+<select id="selectBoards" parameterType="com.football.api.biz.board.vo.BoardMasterVO" resultType="com.football.api.biz.board.vo.BoardMasterVO">
+SELECT 
+		tbmt.boardNo
+	,	tbmt.boardTypeCd
+	,	tbmt.title
+	,	tbmt.contents
+	,	tbmt.viewType
+	,	tbmt.regUser
+	,	tbmt.regDt
+	,	tbmt.updUser
+	,	tbmt.updDt 
+FROM 
+		tbBoardMaster tbmt 
+</select>
+
+</mapper>
