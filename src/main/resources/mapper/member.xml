@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.football.api.biz.member.MemberMapper">
+<!-- 회원마스터 저장 -->
+<insert id="insertMemberMaster" parameterType="com.football.api.biz.member.vo.MemberMasterVO" useGeneratedKeys="true" keyProperty="memNo">
+    INSERT INTO tbMemberMaster
+        (
+            memNo,
+            memTypeCd,
+            memId,
+            memNm,
+            nickNm,
+            phone,
+            email,
+            gender,
+            birth,
+            viewType
+        ) VALUES (
+            #{memNo},
+            #{memTypeCd},
+            #{memId},
+            #{memNm},
+            #{nickNm},
+            #{phone},
+            #{email},
+            #{gender},
+            #{birth},
+            #{viewType}
+        )
+</insert>
+
+<!-- 회원가입 회원마스터 수정 -->
+<update id="updateJoinMemberMaster" parameterType="com.football.api.biz.member.vo.MemberMasterVO">
+    UPDATE
+        tbMemberMaster
+    SET
+        passwordNo = #{passwordNo},
+        regUser = #{memNo},
+        regDt = NOW()
+    WHERE
+        memNo = #{memNo}
+</update>
+
+<!-- 회원비밀번호 저장 -->
+<insert id="insertMemberPassword" parameterType="com.football.api.biz.member.vo.MemberPasswordVO" useGeneratedKeys="true" keyProperty="passwordNo">
+    INSERT INTO tbMemberPassword
+    (
+        passwordNo,
+        memNo,
+        password,
+        regUser,
+        regDt
+    ) VALUES (
+        #{passwordNo},
+        #{memNo},
+        #{password},
+        #{memNo},
+        NOW()
+    )
+</insert>
+
+</mapper>
