@@ -28,4 +28,11 @@ public interface MemberMapper {
      * @return
      */
 	public int insertMemberPassword(MemberPasswordVO vo);    
+
+	/**
+     * 아이디 중복 체크
+     * @param vo
+     * @return
+     */
+	public MemberMasterVO selectMemberById(String memId);    
 }

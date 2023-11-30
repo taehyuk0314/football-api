@@ -25,7 +25,7 @@
             #{email},
             #{gender},
             #{birth},
-            #{viewType}
+            '01'
         )
 </insert>
 
@@ -58,5 +58,25 @@
         NOW()
     )
 </insert>
+
+<!-- ID로 회원 조회 -->
+<select id="selectMemberById" parameterType="String" resultType="com.football.api.biz.member.vo.MemberMasterVO">
+    SELECT
+            tmbm.memNo
+        ,	tmbm.memTypeCd
+        ,	tmbm.memId
+        ,	tmbm.password
+        ,	tmbm.memNm
+        ,	tmbm.phone
+        ,	tmbm.email
+        ,	tmbm.gender
+        ,	tmbm.birth
+        ,	tmbm.viewType
+    FROM
+            tbMemberMaster	tmbm
+    WHERE
+            memId		= #{memId}
+    AND	    viewType	!= '04'
+</select>
 
 </mapper>

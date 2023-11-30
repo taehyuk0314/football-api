@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 5000,
     "height": 5000,
-    "scrollTop": -536.3380208333322,
-    "scrollLeft": -668.9333333333337,
-    "zoomLevel": 0.9,
+    "scrollTop": -561.9380208333324,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -396,7 +396,7 @@
           "active": false,
           "left": 242.8443,
           "top": 125.2445,
-          "zIndex": 434,
+          "zIndex": 2,
           "widthName": 100.2490234375,
           "widthComment": 60
         },
@@ -527,7 +527,7 @@
           "active": false,
           "left": 891.8227,
           "top": 132.7553,
-          "zIndex": 456,
+          "zIndex": 5,
           "widthName": 117.59716796875,
           "widthComment": 83.61181640625
         },
@@ -589,7 +589,7 @@
           "active": false,
           "left": 899.267,
           "top": 350.0265,
-          "zIndex": 438,
+          "zIndex": 3,
           "widthName": 97.3671875,
           "widthComment": 67
         },
@@ -651,7 +651,7 @@
           "active": false,
           "left": 1349.7333,
           "top": 353.938,
-          "zIndex": 452,
+          "zIndex": 4,
           "widthName": 89.419921875,
           "widthComment": 83.61181640625
         },
@@ -851,12 +851,166 @@
           "active": false,
           "left": 819.5113,
           "top": 616.3382,
-          "zIndex": 420,
+          "zIndex": 1,
           "widthName": 97.37353515625,
           "widthComment": 70.61181640625
         },
         "visible": true,
         "id": "ab0646dd-a300-4617-9901-50c053451011"
+      },
+      {
+        "name": "tbCodeMaster",
+        "comment": "공통코드",
+        "columns": [
+          {
+            "name": "codeType",
+            "comment": "코드타입",
+            "dataType": "CHAR(3)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "3f728d9b-a15a-46e8-8a58-69cc71919e64"
+          },
+          {
+            "name": "codeTypeNm",
+            "comment": "코드타입명",
+            "dataType": "VARCHAR(20)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 78.5908203125,
+              "widthComment": 67,
+              "widthDataType": 87.71875,
+              "widthDefault": 60
+            },
+            "id": "b6b9cffa-52c0-4e90-b22c-c4b37d826a93"
+          },
+          {
+            "name": "code",
+            "comment": "코드",
+            "dataType": "CHAR(6)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "961868ac-f8cf-492c-9252-bb2a8dc884e6"
+          },
+          {
+            "name": "codeNm",
+            "comment": "코드명",
+            "dataType": "VARCHAR(20)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 87.71875,
+              "widthDefault": 60
+            },
+            "id": "e5b65084-c3eb-44e4-9162-0635cdbdc4c4"
+          },
+          {
+            "name": "viewType",
+            "comment": "보기상태",
+            "dataType": "CHAR(2)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "479115ff-8bda-4e25-bc9f-5d385d094028"
+          },
+          {
+            "name": "sortNo",
+            "comment": "순서",
+            "dataType": "INTEGER",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e10b2722-df36-4259-b732-863922ca7268"
+          }
+        ],
+        "ui": {
+          "active": true,
+          "left": 130.3557,
+          "top": 632.5154,
+          "zIndex": 36,
+          "widthName": 83.64990234375,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "244c2381-0abe-4aca-ae4b-51c940d12e1b"
       }
     ],
     "indexes": []
