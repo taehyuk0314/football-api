@@ -2,19 +2,13 @@
 spring:
   config:
     location: classpath:application*.yml
-front-base-url: http://localhost:3000
-api-base-url: http://localhost:9000
-
----
-
-spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/football?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
-    password: root
-
----
+    password: root    
+front-base-url: http://localhost:3000
+api-base-url: http://localhost:9000
 
 server:
   port : 9000

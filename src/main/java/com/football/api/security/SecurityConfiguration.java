@@ -11,6 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.session.web.http.CookieSerializer;
 import org.springframework.session.web.http.DefaultCookieSerializer;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
@@ -31,6 +33,20 @@ public class SecurityConfiguration {
             );
         return http.build();	
 	}
+	@Bean
+	public WebMvcConfigurer webMvcConfigurer() {
+	    return new WebMvcConfigurer() {
+	        @Override
+	        public void addCorsMappings(CorsRegistry registry) {
+	            registry.addMapping("/**")
+	            .allowedOriginPatterns("*")
+	                    .allowedMethods("*")
+	                    .allowedHeaders("*")
+	                    .allowCredentials(true)
+	                    .maxAge(86400); // 1일
+	        }
+	    };
+	}    
     @Bean
 	public CookieSerializer cookieSerializer() {
 	    DefaultCookieSerializer cookieSerializer = new DefaultCookieSerializer();
