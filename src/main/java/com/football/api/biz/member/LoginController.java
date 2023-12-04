@@ -17,8 +17,9 @@ public class LoginController {
      * @param vo
      * @return
      */
-	@PostMapping("/member")
+	@PostMapping("/join")
 	public int insertMember(@RequestBody JoinIVO vo) throws BussinessException {
 		return loginService.insertMember(vo);    
-    }
+  }
+    
 }

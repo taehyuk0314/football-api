@@ -6,6 +6,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ProfileMasterVO extends MemberProfileVO {
-    Integer ProfileNo;
-    String Introduction;
+    Integer profileNo;
+    String introduction;
 }

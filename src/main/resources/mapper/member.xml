@@ -65,7 +65,7 @@
             tmbm.memNo
         ,	tmbm.memTypeCd
         ,	tmbm.memId
-        ,	tmbm.password
+        ,	tmbm.passwordNo
         ,	tmbm.memNm
         ,	tmbm.phone
         ,	tmbm.email
