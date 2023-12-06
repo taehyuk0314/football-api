@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.football.api.biz.member.vo.MemberMasterVO;
 import com.football.api.biz.member.vo.MemberPasswordVO;
+import com.football.api.biz.member.vo.MemberVO;
 
 
 @Mapper
@@ -35,4 +36,11 @@ public interface MemberMapper {
      * @return
      */
 	public MemberMasterVO selectMemberById(String memId);    
+     
+     /**
+      * 회원정보 조회
+      * @param vo
+      * @return
+      */
+     public MemberVO selectMember(MemberVO vo);
 }
