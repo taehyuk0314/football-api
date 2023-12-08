@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
+@SuppressWarnings("serial")
 @EqualsAndHashCode(callSuper = true)
 public class MemberProfileVO extends MemberMasterVO{
     Integer memNo;

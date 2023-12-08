@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.football.api.biz.board.BoardMapper">
-<!-- 게시물 조회 -->
-<select id="selectBoards" parameterType="com.football.api.biz.board.vo.BoardMasterVO" resultType="com.football.api.biz.board.vo.BoardMasterVO">
+<!-- ugcs 조회 -->
+<select id="selectUgcs" parameterType="com.football.api.biz.board.vo.BoardUgcVO" resultType="com.football.api.biz.board.vo.BoardUgcVO">
 SELECT 
-		tbmt.boardNo
-	,	tbmt.boardTypeCd
-	,	tbmt.title
-	,	tbmt.contents
-	,	tbmt.viewType
-	,	tbmt.regUser
-	,	tbmt.regDt
-	,	tbmt.updUser
-	,	tbmt.updDt 
+			tbmt.boardNo
+		,	tbmt.boardTypeCd
+		,	tbmt.title
+		,	tbmt.contents
+		,	tbmt.viewType
+		,	tbmt.regUser
+		,	tbmt.regDt
+		,	tbmt.updUser
+		,	tbmt.updDt 
+		,	tbdc.useReply
+		,	tbdc.useNickname
 FROM 
-		tbBoardMaster tbmt 
+			tbBoardMaster tbmt 
+INNER JOIN  tbBoardUgc    tbdc	ON tbdc.boardNo = tbmt.boardNo
+WHERE
+			tbmt.viewType = '01'
+AND			tbmt.boardTypeCd = #{boardTypeCd}
 </select>
 
 </mapper>

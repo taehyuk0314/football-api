@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.football.api.biz.board.vo.BoardMasterVO;
+import com.football.api.biz.board.vo.BoardUgcVO;
 
 @RestController
 public class BoardController {
@@ -18,8 +19,8 @@ public class BoardController {
      * @param vo
      * @return
      */
-	@GetMapping("/boards")
-	public List<BoardMasterVO> selectBoards(BoardMasterVO vo) {
-		return boardService.selectBoards(vo);
+	@GetMapping("/board/ugcs")
+	public List<BoardUgcVO> selectUgcs(BoardUgcVO vo) {
+		return boardService.selectUgcs(vo);
 	}    
 }

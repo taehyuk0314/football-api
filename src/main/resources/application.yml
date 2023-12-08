@@ -19,3 +19,13 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
     lazy-loading-enabled: true 
+    
+logging:
+  level:
+    jdbc:
+      sqlonly: OFF
+      sqltiming: INFO
+      audit: OFF
+      resultset: OFF
+      resultsettable: OFF
+      connection: OFF    

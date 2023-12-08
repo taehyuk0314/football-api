@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.football.api.biz.board.vo.BoardMasterVO;
+import com.football.api.biz.board.vo.BoardUgcVO;
 
 @Service
 public class BoardService {
@@ -13,11 +14,12 @@ public class BoardService {
 	BoardMapper boardMapper;
 
     /**
-     * 게시판 조회
+     * ugc 조회
      * @param vo
      * @return
      */    
-    public List<BoardMasterVO> selectBoards(BoardMasterVO vo) {
-        return boardMapper.selectBoards(vo);
+    public List<BoardUgcVO> selectUgcs(BoardUgcVO vo) {
+    	vo.setBoardTypeCd("002001");
+        return boardMapper.selectUgcs(vo);
     }    
 }
