@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.football.api.biz.mypage.MypageMapper">
+<!-- ID로 회원 조회 -->
+<select id="selectMypage" parameterType="String" resultType="com.football.api.biz.member.vo.MemberVO">
+    SELECT
+            tmbm.memNo
+        ,	tmbm.memTypeCd
+        ,	tmbm.memId
+        ,	tmbm.passwordNo
+        ,	tmbm.memNm
+        ,	tmbm.phone
+        ,	tmbm.email
+        ,	tmbm.gender
+        ,	tmbm.birth
+        ,	tmbm.viewType
+    FROM
+            tbMemberMaster	tmbm
+    WHERE
+            tmbm.memNo		= #{loginMemNo}
+</select>
+
+</mapper>

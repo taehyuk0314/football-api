@@ -17,8 +17,6 @@ public class MemberMasterVO  extends CommonVO implements Serializable {
 	Integer memNo;
     String memTypeCd;
     String memId;
-    @JsonIgnore
-	String memPwd;
     Integer passwordNo;
     String memNm;
     String nickNm;
@@ -31,6 +29,6 @@ public class MemberMasterVO  extends CommonVO implements Serializable {
     String regDt;
     Integer updUser;
     String updDt;
-    
+    @JsonIgnore
     String password;
 }

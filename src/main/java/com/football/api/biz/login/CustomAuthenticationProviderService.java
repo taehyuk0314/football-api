@@ -30,7 +30,6 @@ public class CustomAuthenticationProviderService implements AuthenticationProvid
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 	CommonAuthenticationToken token = (CommonAuthenticationToken) authentication;
-		
 		String userId = token.getName();
         LoginVO user = (LoginVO) loginService.loadUserByUsername(userId);
         

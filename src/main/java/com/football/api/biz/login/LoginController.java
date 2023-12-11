@@ -5,6 +5,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ import com.football.api.exception.BussinessException;
 import com.football.api.security.CommonAuthenticationToken;
 import com.football.api.security.SecurityUtils;
 
+import jakarta.servlet.http.HttpSession;
 
 @RestController
 public class LoginController {
@@ -29,6 +31,9 @@ public class LoginController {
 	@Autowired
 	AuthenticationManager authenticationManager;
 
+	@Autowired
+	HttpSession session;	
+	
 	/**
 	 * 로그인
 	 * @param fcmUserToken
@@ -41,13 +46,9 @@ public class LoginController {
 	public MemberMasterVO login(@CookieValue(value = "FcmUserToken", defaultValue = "") String fcmUserToken, @CookieValue(value = "UserApp", defaultValue = "") String userAgent, @RequestBody LoginIVO vo) throws Exception {
 		
 		Authentication token = new CommonAuthenticationToken(vo.getMemId(), vo.getPassword(), fcmUserToken, userAgent);
-		System.out.println("도저히"+ token);
 		Authentication auth = authenticationManager.authenticate(token);
-		System.out.println("몰라");
 		SecurityContextHolder.getContext().setAuthentication(auth);
-		System.out.println("ㅋㅋ");
 		MemberMasterVO member = SecurityUtils.getUserDetails();
-		
 		return member;
 	}
 
@@ -61,5 +62,23 @@ public class LoginController {
 	public int insertMember(@RequestBody JoinIVO vo) throws BussinessException {
 		return loginService.insertMember(vo);    
   }
-    
-}
+ 
+	/**
+	 * 간략 유저 정보
+	 * @return
+	 */
+	@GetMapping("/login/simple-details")
+	public MemberMasterVO selectSimpleDetails() {
+		return SecurityUtils.getSimpleUserDetails();
+	}	
+	/**
+	 * 로그아웃
+	 * @return
+	 */	
+	@GetMapping("/logout")
+	public void logout() {
+		SecurityContextHolder.clearContext();
+		this.session.invalidate();
+	}
+	
+}	

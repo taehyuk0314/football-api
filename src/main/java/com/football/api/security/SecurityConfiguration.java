@@ -38,6 +38,7 @@ public class SecurityConfiguration {
         http
             .csrf(AbstractHttpConfigurer::disable)
             .formLogin(AbstractHttpConfigurer::disable)
+            .logout(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests((authz) -> authz
     		.requestMatchers("/mypage/**").hasAnyAuthority(Constants.ROLE_MEMBER)
             .anyRequest().permitAll()

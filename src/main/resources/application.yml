@@ -29,3 +29,8 @@ logging:
       resultset: OFF
       resultsettable: OFF
       connection: OFF    
+session:
+  timeout: 2592000 #30일
+  store-type: redis
+redis:
+  database: 10        

@@ -69,4 +69,24 @@ public class SecurityUtils {
 		session.removeAttribute(PASSWORD_FAILED_COUNT);
 //		session.setMaxInactiveInterval(SecurityConfiguration.SESSION_TIMEOUT);
 	}
+	
+	/**
+	 * 간략 유저 정보
+	 * 
+	 * @return
+	 */
+	public MemberMasterVO getSimpleUserDetails() {
+		MemberMasterVO temp = getUserDetails();
+		System.out.println(temp);
+		if(temp == null) {
+			return null;
+		}
+		MemberMasterVO member = new MemberMasterVO();
+		
+		member.setMemNo(temp.getMemNo());
+		member.setMemNm(temp.getMemNm());
+		member.setMemTypeCd(temp.getMemTypeCd());
+
+		return member;
+	}	
 }
