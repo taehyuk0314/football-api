@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class LoginIVO {
-	String memId;
+	String id;
 	String password;
 }

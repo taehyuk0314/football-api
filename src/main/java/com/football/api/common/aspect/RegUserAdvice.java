@@ -32,24 +32,20 @@ public class RegUserAdvice {
 			for (Method method : arg.getClass().getMethods()) {
 				switch (method.getName()) {
 				case "getLoginMemNo":
-					if("junit".equals(env.getProperty("env")) == true) {
-						if(ObjectUtils.isNotEmpty(arg.getClass().getMethod("getLoginMemNo").invoke(arg)) == true) {
+						if(arg.getClass().getMethod("getLoginMemNo").invoke(arg) != null) {
 							hasLoginMemNo = false;
 							continue;
-						} else if(ObjectUtils.isNotEmpty(arg.getClass().getMethod("getMemNo").invoke(arg)) == true) {
+						} else if(arg.getClass().getMethod("getMemNo").invoke(arg) != null) {
 							arg.getClass().getMethod("setLoginMemNo").invoke(arg, arg.getClass().getMethod("getMemNo").invoke(arg));
 							hasLoginMemNo = false;
 							continue;
 						}
-					}
 					break;
 				case "setLoginMemNo":
 					try {
-						if("junit".equals(env.getProperty("env")) == true) {
-							if(hasLoginMemNo == false) {
-								continue;
-							} 
-						}
+						if(hasLoginMemNo == false) {
+							continue;
+						} 
 						method.invoke(arg, SecurityUtils.getSimpleUserDetails().getMemNo());
 					} catch (Exception e) {
 						e.printStackTrace();

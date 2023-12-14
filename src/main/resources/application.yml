@@ -1,17 +1,28 @@
-
-spring:
-  config:
-    location: classpath:application*.yml
+server:
+  port : 9000
+spring:  
+  aop:
+    auto: true
+    proxy-target-class: true
+  main:
+    allow-circular-references: true    
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/football?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
     password: root    
-front-base-url: http://localhost:3000
-api-base-url: http://localhost:9000
-
-server:
-  port : 9000
+    hikari:
+      connection-timeout: 300000    
+      maximum-pool-size: 5    
+  session:  
+    timeout: 2592000 #30일
+    store-type: redis    
+  data:
+    redis:
+      host: localhost
+      port: 6379  
+      database: 0
+      password: root
 
 mybatis:
   mapper-locations:
@@ -29,8 +40,3 @@ logging:
       resultset: OFF
       resultsettable: OFF
       connection: OFF    
-session:
-  timeout: 2592000 #30일
-  store-type: redis
-redis:
-  database: 10        

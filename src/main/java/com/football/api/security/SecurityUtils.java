@@ -77,7 +77,6 @@ public class SecurityUtils {
 	 */
 	public MemberMasterVO getSimpleUserDetails() {
 		MemberMasterVO temp = getUserDetails();
-		System.out.println(temp);
 		if(temp == null) {
 			return null;
 		}

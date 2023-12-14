@@ -19,7 +19,9 @@ import com.football.api.security.CommonAuthenticationToken;
 import com.football.api.security.SecurityUtils;
 
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 public class LoginController {
 	@Autowired
@@ -44,8 +46,7 @@ public class LoginController {
 	 */
 	@PostMapping("/login")
 	public MemberMasterVO login(@CookieValue(value = "FcmUserToken", defaultValue = "") String fcmUserToken, @CookieValue(value = "UserApp", defaultValue = "") String userAgent, @RequestBody LoginIVO vo) throws Exception {
-		
-		Authentication token = new CommonAuthenticationToken(vo.getMemId(), vo.getPassword(), fcmUserToken, userAgent);
+		Authentication token = new CommonAuthenticationToken(vo.getId(), vo.getPassword(), fcmUserToken, userAgent);
 		Authentication auth = authenticationManager.authenticate(token);
 		SecurityContextHolder.getContext().setAuthentication(auth);
 		MemberMasterVO member = SecurityUtils.getUserDetails();
