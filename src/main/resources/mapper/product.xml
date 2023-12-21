@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.football.api.biz.product.ProductMapper">
+<!-- ugcs 조회 -->
+<select id="selectProducts" parameterType="com.football.api.biz.product.vo.ProductVO" resultType="com.football.api.biz.product.vo.ProductVO">
+SELECT
+			tpdm.productNo
+		, 	tpdm.productTypeCd
+		, 	tpdm.productNm
+		, 	tpdm.brandNo
+		, 	tpdm.minProductCount
+		, 	tpdm.maxProductCount
+		, 	tpdm.price
+		, 	tpdm.salePrice
+		, 	tpdm.totalPrice
+		, 	tpdm.viewType
+		, 	tpdm.regUser
+		, 	tpdm.regDt
+		, 	tpdm.updUser
+		, 	tpdm.updDt
+		,	tbdm.brandNm
+		,	tcdm.codeNm
+		,	tlkm.likeNo 
+FROM 
+			tbProductMaster tpdm
+LEFT JOIN	tbBrandMaster   tbdm ON tpdm.brandNo = tbdm.brandNo
+LEFT JOIN   tbCodeMaster    tcdm ON tpdm.productTypeCd = tcdm.code 
+LEFT JOIN   tbLikeMaster 	tlkm ON tlkm.targetNo = tpdm.productNo AND tlkm.likeTypeCd = '003002' AND tlkm.regUser = #{loginMemNo}
+WHERE 
+			tpdm.viewType = '01'
+</select>
+
+</mapper>
