@@ -6,6 +6,9 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ProductVO  extends ProductMasterVO {
+public class ProductVO  extends ProductOptionVO {/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 }

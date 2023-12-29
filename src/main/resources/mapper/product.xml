@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.football.api.biz.product.ProductMapper">
-<!-- ugcs 조회 -->
+<!-- 상품목록 조회 -->
 <select id="selectProducts" parameterType="com.football.api.biz.product.vo.ProductVO" resultType="com.football.api.biz.product.vo.ProductVO">
 SELECT
 			tpdm.productNo

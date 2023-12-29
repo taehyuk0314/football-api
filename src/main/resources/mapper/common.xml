@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.football.api.common.CommonMapper">
+<!-- 공통코드그룹 조회 -->
+<select id="selectCodeGroups" parameterType="com.football.api.common.vo.CodeMasterVO" resultType="com.football.api.common.vo.CodeMasterVO">
+SELECT 
+			tcdg.codeGroupCd
+		, 	tcdg.code
+		, 	tcdg.codeGroupNm
+		, 	tcdm.codeType
+		, 	tcdm.codeTypeNm
+		, 	tcdm.codeNm
+		, 	tcdm.viewType
+		, 	tcdm.sortNo
+FROM 
+			tbCodeGroup  tcdg
+INNER JOIN	tbCodeMaster tcdm ON tcdg.code = tcdm.code  
+WHERE 	
+			tcdm.viewType = '01'
+AND			tcdg.codeGroupCd = #{code}
+</select>
+
+<select id="selectCodes" parameterType="com.football.api.common.vo.CodeMasterVO" resultType="com.football.api.common.vo.CodeMasterVO">
+SELECT 
+			tcdm.code
+		, 	tcdm.codeType
+		, 	tcdm.codeTypeNm
+		, 	tcdm.codeNm
+		, 	tcdm.viewType
+		, 	tcdm.sortNo
+FROM 
+			tbCodeMaster tcdm
+WHERE 	
+			tcdm.viewType = '01'
+AND			tcdm.codeType = #{codeType}
+</select>
+
+</mapper>

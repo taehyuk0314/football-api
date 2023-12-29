@@ -1,13 +1,16 @@
 package com.football.api.biz.member.vo;
 
-import com.football.api.common.vo.CommonVO;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class LikeMasterVO extends CommonVO {
+public class LikeMasterVO extends MemberMasterVO {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Integer likeNo;
 	String likeTypeCd;
 	Integer targetNo;
