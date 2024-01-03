@@ -22,6 +22,7 @@ public class ProductMasterVO extends BrandMasterVO {
 	BigDecimal price;
 	BigDecimal salePrice;
 	BigDecimal totalPrice;
+	BigDecimal likeCnt;
     String viewType;
     Integer regUser;
     String regDt;

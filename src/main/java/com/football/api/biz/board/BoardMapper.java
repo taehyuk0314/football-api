@@ -3,7 +3,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.football.api.biz.board.vo.BoardMasterVO;
 import com.football.api.biz.board.vo.BoardUgcVO;
 
 @Mapper

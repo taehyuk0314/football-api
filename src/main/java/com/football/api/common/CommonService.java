@@ -18,7 +18,7 @@ public class CommonService {
      * @return
      */    
     public List<CodeMasterVO> selectCodes(CodeMasterVO vo) {
-        return commonMapper.selectCodes(vo);
+        return commonMapper.selectCodes1(vo);
     }    
     
     /**
@@ -27,7 +27,7 @@ public class CommonService {
      * @return
      */    
     public List<CodeMasterVO> selectCodeGroups(CodeMasterVO vo) {
-    	List<CodeMasterVO> result = commonMapper.selectCodes(vo);
+    	List<CodeMasterVO> result = commonMapper.selectCodes1(vo);
 		for(CodeMasterVO code: result) {
 			System.out.println(code);
 			code.setCodes(commonMapper.selectCodeGroups(code));

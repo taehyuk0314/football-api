@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 5000,
     "height": 5000,
-    "scrollTop": -683.8000000000029,
-    "scrollLeft": -994.9562499999997,
+    "scrollTop": -763.0000000000034,
+    "scrollLeft": -684.5562499999996,
     "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
@@ -397,7 +397,7 @@
           "active": false,
           "left": 242.8443,
           "top": 125.2445,
-          "zIndex": 5,
+          "zIndex": 4,
           "widthName": 100.2490234375,
           "widthComment": 60
         },
@@ -528,7 +528,7 @@
           "active": false,
           "left": 891.8227,
           "top": 132.7553,
-          "zIndex": 4,
+          "zIndex": 3,
           "widthName": 117.59716796875,
           "widthComment": 83.61181640625
         },
@@ -590,7 +590,7 @@
           "active": false,
           "left": 899.267,
           "top": 350.0265,
-          "zIndex": 2,
+          "zIndex": 1,
           "widthName": 97.3671875,
           "widthComment": 67
         },
@@ -652,7 +652,7 @@
           "active": false,
           "left": 1349.7333,
           "top": 353.938,
-          "zIndex": 3,
+          "zIndex": 2,
           "widthName": 89.419921875,
           "widthComment": 83.61181640625
         },
@@ -737,6 +737,98 @@
             "name": "price",
             "comment": "가격",
             "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "4724e8ee-da06-48bd-8aec-61dfc412410e",
+            "name": "salePrice",
+            "comment": "세일 가격",
+            "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "b05844e2-a1be-4879-af23-dd549c5239f7",
+            "name": "totalPrice",
+            "comment": "토탈가격",
+            "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "5d86cab4-521e-4f0d-8bdb-9663d9bfbd07",
+            "name": "likeCnt",
+            "comment": "좋아요 수",
+            "dataType": "BIGINT(9)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 61.2236328125,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "9f19fff3-3c7e-45e4-a3eb-c3cbc215825b",
+            "name": "viewType",
+            "comment": "보기타입",
+            "dataType": "CHAR(2)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -849,10 +941,10 @@
           }
         ],
         "ui": {
-          "active": false,
+          "active": true,
           "left": 819.5113,
           "top": 616.3382,
-          "zIndex": 31,
+          "zIndex": 57,
           "widthName": 97.37353515625,
           "widthComment": 70.61181640625
         },
@@ -1006,7 +1098,7 @@
           "active": false,
           "left": 178.3556,
           "top": 631.182,
-          "zIndex": 9,
+          "zIndex": 7,
           "widthName": 83.64990234375,
           "widthComment": 60
         },
@@ -1229,7 +1321,7 @@
           "active": false,
           "left": 362.40000000000003,
           "top": 1024.3380208333333,
-          "zIndex": 7,
+          "zIndex": 6,
           "widthName": 87.26171875,
           "widthComment": 70.61181640625
         },
@@ -1314,7 +1406,7 @@
           "active": false,
           "left": 883.4665,
           "top": 1060.7825,
-          "zIndex": 6,
+          "zIndex": 5,
           "widthName": 70.64990234375,
           "widthComment": 96.61181640625
         },
@@ -1445,7 +1537,7 @@
           "active": false,
           "left": 864.8748,
           "top": 1303.3049,
-          "zIndex": 10,
+          "zIndex": 8,
           "widthName": 76.419921875,
           "widthComment": 83.61181640625
         },
@@ -1665,10 +1757,10 @@
           }
         ],
         "ui": {
-          "active": true,
+          "active": false,
           "left": 1322.9561,
           "top": 598.0222,
-          "zIndex": 52,
+          "zIndex": 10,
           "widthName": 95.9453125,
           "widthComment": 60
         },
@@ -1797,7 +1889,7 @@
             "a00e96ee-1a41-48e0-a916-46016ae35acb"
           ],
           "x": 1231.6226281250001,
-          "y": 732.8382,
+          "y": 773.8382,
           "direction": "right"
         },
         "end": {

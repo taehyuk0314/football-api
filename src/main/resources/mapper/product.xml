@@ -29,5 +29,72 @@ LEFT JOIN   tbLikeMaster 	tlkm ON tlkm.targetNo = tpdm.productNo AND tlkm.likeTy
 WHERE 
 			tpdm.viewType = '01'
 </select>
+<!-- 상품 조회 -->
+<select id="selectProduct" parameterType="com.football.api.biz.product.vo.ProductVO" resultType="com.football.api.biz.product.vo.ProductVO">
+SELECT
+			tpdm.productNo
+		, 	tpdm.productTypeCd
+		, 	tpdm.productNm
+		, 	tpdm.brandNo
+		, 	tpdm.minProductCount
+		, 	tpdm.maxProductCount
+		, 	tpdm.price
+		, 	tpdm.salePrice
+		, 	tpdm.totalPrice
+		, 	tpdm.viewType
+		, 	tpdm.regUser
+		, 	tpdm.regDt
+		, 	tpdm.updUser
+		, 	tpdm.updDt
+		,	tbdm.brandNm
+		,	tcdm.codeNm
+		,	IF(tlkm.likeNo,1,0) AS isLiked 
+		,	tlkm.likeNo
+FROM 
+			tbProductMaster tpdm
+LEFT JOIN	tbBrandMaster   tbdm ON tpdm.brandNo = tbdm.brandNo
+LEFT JOIN   tbCodeMaster    tcdm ON tpdm.productTypeCd = tcdm.code 
+LEFT JOIN   tbLikeMaster 	tlkm ON tlkm.targetNo = tpdm.productNo AND tlkm.likeTypeCd = '003002' AND tlkm.regUser = #{loginMemNo}
+WHERE 
+			tpdm.viewType = '01'
+AND			tpdm.productNo = #{productNo}	
+</select>
+
+<!-- 상품 조회 -->
+<select id="selectProductOptions" parameterType="com.football.api.biz.product.vo.ProductMasterVO" resultType="com.football.api.biz.product.vo.ProductOptionVO">
+SELECT 
+			tpdo.optionNo
+		, 	tpdo.optionNm
+		, 	tpdo.optionCnt
+		, 	tpdo.viewType
+		, 	tpdo.regUser
+		, 	tpdo.regDt
+		, 	tpdo.updUser
+		, 	tpdo.updDt
+		, 	tpdo.productNo
+FROM 
+			tbProductOption tpdo
+INNER JOIN	tbProductMaster tpdm ON tpdo.productNo = tpdm.productNo
+WHERE 
+			tpdo.viewType = '01'
+AND			tpdo.productNo = #{productNo}	
+</select>
+
+<!-- 상품 좋아요 카운트 증가 -->
+<update id="likeProduct" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
+UPDATE 	tbProductMaster
+SET
+		likeCnt=likeCnt + 1
+WHERE 
+		productNo=#{targetNo}
+</update>
+<!-- 상품 좋아요 카운트 증가 -->
+<update id="unLikeProduct" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
+UPDATE 	tbProductMaster
+SET
+		likeCnt=likeCnt - 1
+WHERE 
+		productNo=#{targetNo}
+</update>
 
 </mapper>

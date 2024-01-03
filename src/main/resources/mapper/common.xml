@@ -20,7 +20,7 @@ WHERE
 AND			tcdg.codeGroupCd = #{code}
 </select>
 
-<select id="selectCodes" parameterType="com.football.api.common.vo.CodeMasterVO" resultType="com.football.api.common.vo.CodeMasterVO">
+<select id="selectCodes1" parameterType="com.football.api.common.vo.CodeMasterVO" resultType="com.football.api.common.vo.CodeMasterVO">
 SELECT 
 			tcdm.code
 		, 	tcdm.codeType

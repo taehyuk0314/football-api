@@ -16,4 +16,5 @@ public class LikeMasterVO extends MemberMasterVO {
 	Integer targetNo;
 	Integer regUser;
 	String regDt;
+	Boolean isLiked;
 }
