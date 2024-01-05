@@ -35,10 +35,6 @@ public class RegUserAdvice {
 						if(arg.getClass().getMethod("getLoginMemNo").invoke(arg) != null) {
 							hasLoginMemNo = false;
 							continue;
-						} else if(arg.getClass().getMethod("getMemNo").invoke(arg) != null) {
-							arg.getClass().getMethod("setLoginMemNo").invoke(arg, arg.getClass().getMethod("getMemNo").invoke(arg));
-							hasLoginMemNo = false;
-							continue;
 						}
 					break;
 				case "setLoginMemNo":

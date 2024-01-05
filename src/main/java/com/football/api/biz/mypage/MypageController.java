@@ -4,9 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.football.api.biz.member.vo.CartMasterVO;
 import com.football.api.biz.member.vo.MemberVO;
+import com.football.api.biz.mypage.vo.CartIVO;
 
 @RestController
 public class MypageController {
@@ -27,8 +31,18 @@ public class MypageController {
 	 * @param vo
 	 * @return
 	 */
-//	@GetMapping("/mypage/cart")
-//	public List<ProductVO> selectMyCart(CartIVO vo) {
-//		return mypageService.selectMyCart(vo);
-//	}    
+	@PostMapping("/mypage/cart")
+	public int insertCart(@RequestBody List<CartMasterVO> vo) {
+		return mypageService.insertCart(vo);
+	}    
+	/**
+	 * 장바구니 타입 조회
+	 * @param vo
+	 * @return
+	 */
+	@GetMapping("/mypage/cart")
+	public List<CartMasterVO> selectMyCart(CartIVO vo) {
+		System.out.println(vo);
+		return mypageService.selectMyCart(vo);
+	} 	
 }

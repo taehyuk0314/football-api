@@ -19,5 +19,57 @@
     WHERE
             tmbm.memNo		= #{loginMemNo}
 </select>
+<!-- 장바구니 담기 -->
+<insert id="insertCart" parameterType="com.football.api.biz.member.vo.CartMasterVO">
+	INSERT INTO tbCartMaster (
+		optionNo,
+		orderCnt,
+		memNo,
+		regUser,
+		regDt
+	) VALUES (
+		#{optionNo},
+		#{orderCnt},
+		#{loginMemNo},
+		#{loginMemNo},
+		NOW()
+	)
+</insert>
+
+<!-- 장바구니 조회 -->
+<select id="selectCart" parameterType="com.football.api.biz.mypage.vo.CartIVO" resultType="com.football.api.biz.member.vo.CartMasterVO">
+SELECT 
+			tctm.cartNo
+		, 	tctm.optionNo
+		, 	tctm.orderCnt
+		, 	tctm.memNo
+		, 	tctm.regUser
+		, 	tctm.regDt
+		, 	tctm.updUser
+		, 	tctm.updDt
+		, 	tpto.optionNm
+		, 	tpto.optionCnt
+		, 	tpto.viewType
+		, 	tpdm.productNo
+		, 	tpdm.productTypeCd
+		, 	tpdm.productNm
+		, 	tpdm.brandNo
+		, 	tpdm.minProductCount
+		, 	tpdm.maxProductCount
+		, 	tpdm.price
+		, 	tpdm.salePrice
+		, 	tpdm.totalPrice
+		, 	tpdm.likeCnt
+		, 	tpdm.viewType
+		,	tbdm.brandNm 
+FROM 
+			tbCartMaster 	tctm
+INNER JOIN	tbProductOption tpto ON tctm.optionNo = tpto.optionNo 
+INNER JOIN  tbProductMaster tpdm ON tpdm.productNo = tpto.productNo  
+LEFT  JOIN	tbBrandMaster 	tbdm ON tbdm.brandNo = tpdm.brandNo  
+WHERE 
+			tctm.memNo = #{loginMemNo}
+</select>
+
 
 </mapper>

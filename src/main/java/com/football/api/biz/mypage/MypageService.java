@@ -1,12 +1,15 @@
 package com.football.api.biz.mypage;
 
+
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.football.api.biz.member.vo.CartMasterVO;
 import com.football.api.biz.member.vo.MemberVO;
-import com.football.api.biz.product.vo.ProductVO;
+import com.football.api.biz.mypage.vo.CartIVO;
 
 @Service
 public class MypageService {
@@ -22,20 +25,35 @@ public class MypageService {
     public MemberVO selectMypage(MemberVO vo) {
         return mypageMapper.selectMypage(vo);
     }
-//    
-//    /**
-//     * 장바구니 조회
-//     * @param vo
-//     * @return
-//     */
-//    public List<ProductVO> selectMyCart(CartIVO vo) {
-//    	switch (vo.getCartType()) {
-//			case "cart": 
-//				return null;
-//			case "liked": 
-//				return null;
-//			default: 
-//				return null;
-//    	}
-//    }
+    
+    /**
+     * 장바구니 담기
+     * @param vo
+     * @return
+     */
+    public int insertCart(List<CartMasterVO> vo) {
+    	for (CartMasterVO cart: vo) {
+    		mypageMapper.insertCart(cart);
+			
+		}
+    	return 1;
+    }
+    
+    
+    /**
+     * 장바구니 조회
+     * @param vo
+     * @return
+     */
+    public List<CartMasterVO> selectMyCart(CartIVO vo) {
+    	
+    	switch (vo.getCartType()) {
+			case "cart": 
+				return mypageMapper.selectCart(vo);
+			case "liked": 
+				return mypageMapper.selectLikeList(vo);
+			default: 
+				return null;
+    	}
+    }
 }

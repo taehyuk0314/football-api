@@ -13,6 +13,10 @@ public class ProductMasterVO extends BrandMasterVO {
     /**
 	 * 
 	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
 	Integer productNo;
 	String productTypeCd;
 	String productNm;
