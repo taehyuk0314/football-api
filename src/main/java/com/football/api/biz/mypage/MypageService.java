@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import com.football.api.biz.member.vo.CartMasterVO;
 import com.football.api.biz.member.vo.MemberVO;
@@ -39,6 +40,14 @@ public class MypageService {
     	return 1;
     }
     
+	/**
+	 * 장바구니 삭제
+	 * @param vo
+	 * @return
+	 */
+	public int deleteCart(CartMasterVO vo) {
+		return mypageMapper.deleteCart(vo);
+	}      
     
     /**
      * 장바구니 조회

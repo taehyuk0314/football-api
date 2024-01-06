@@ -3,6 +3,7 @@ package com.football.api.biz.mypage;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,15 +27,27 @@ public class MypageController {
 	public MemberVO selectMypage(MemberVO vo) {
 		return mypageService.selectMypage(vo);
 	}   
+	
 	/**
-	 * 장바구니 타입 조회
+	 * 장바구니 담기
 	 * @param vo
 	 * @return
 	 */
 	@PostMapping("/mypage/cart")
 	public int insertCart(@RequestBody List<CartMasterVO> vo) {
 		return mypageService.insertCart(vo);
-	}    
+	}   
+	
+	/**
+	 * 장바구니 삭제
+	 * @param vo
+	 * @return
+	 */
+	@DeleteMapping("/mypage/cart")
+	public int deleteCart(CartMasterVO vo) {
+		return mypageService.deleteCart(vo);
+	}   
+	
 	/**
 	 * 장바구니 타입 조회
 	 * @param vo

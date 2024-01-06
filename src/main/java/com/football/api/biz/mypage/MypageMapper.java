@@ -32,6 +32,13 @@ public interface MypageMapper {
       */
      public List<CartMasterVO> selectCart(CartIVO vo);
      
+ 	/**
+ 	 * 장바구니 삭제
+ 	 * @param vo
+ 	 * @return
+ 	 */
+ 	public int deleteCart(CartMasterVO vo);
+ 	
      /**
       * 좋아요 리스트
       * @param vo
