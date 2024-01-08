@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 import com.football.api.biz.member.vo.CartMasterVO;
@@ -65,4 +66,20 @@ public class MypageService {
 				return null;
     	}
     }
+    
+    /**
+     * 최근 본 상품 조회
+     * @param vo
+     * @return
+     */    
+    public List<CartMasterVO> selectRecentProducts(List<Integer> productNos ){
+		if(ObjectUtils.isEmpty(productNos) || productNos.size() > 20) {
+			return null;
+		}    	
+		
+		CartIVO vo = new CartIVO();
+		vo.setProductNos(productNos);
+		
+		return mypageMapper.selectRecentProducts(vo);		
+    }    
 }

@@ -55,7 +55,17 @@ public class MypageController {
 	 */
 	@GetMapping("/mypage/cart")
 	public List<CartMasterVO> selectMyCart(CartIVO vo) {
-		System.out.println(vo);
 		return mypageService.selectMyCart(vo);
+	} 	
+	
+	/**
+	 * 최근 본 상품 조회
+	 * @param vo
+	 * @return
+	 */
+	@PostMapping("/mypage/recent-products")
+	public List<CartMasterVO> selectRecentProducts(@RequestBody List<Integer> vo) {
+		System.out.println(vo);
+		return mypageService.selectRecentProducts(vo);
 	} 	
 }

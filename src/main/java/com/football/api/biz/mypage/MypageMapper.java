@@ -45,4 +45,11 @@ public interface MypageMapper {
       * @return
       */
      public List<CartMasterVO> selectLikeList(CartIVO vo);
+     
+     /**
+      * 최근 본 상품 조회
+      * @param vo
+      * @return
+      */    
+     public List<CartMasterVO> selectRecentProducts(CartIVO vo);     
 }

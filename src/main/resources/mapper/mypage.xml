@@ -107,5 +107,39 @@ WHERE
 			tlkm.regUser = #{loginMemNo}
 </select>
 
+<!-- 좋아요 조회 -->
+<select id="selectRecentProducts" parameterType="com.football.api.biz.mypage.vo.CartIVO" resultType="com.football.api.biz.member.vo.CartMasterVO">
+SELECT 
+		 	tpdm.productNo
+		, 	tpdm.productTypeCd
+		, 	tpdm.productNm
+		, 	tpdm.brandNo
+		, 	tpdm.minProductCount
+		, 	tpdm.maxProductCount
+		, 	tpdm.price
+		, 	tpdm.salePrice
+		, 	tpdm.totalPrice
+		, 	tpdm.likeCnt
+		, 	tpdm.viewType
+		,	tbmd.brandNm 
+		
+FROM 
+			tbProductMaster tpdm
+LEFT JOIN	tbBrandMaster 	tbmd ON tbmd.brandNo  = tpdm.brandNo  
+WHERE 
+		tpdm.productNo IN (
+		<foreach collection="productNos" item="item" separator=",">
+			#{item}
+		</foreach>
+		)
+AND		tpdm.viewType = '01'		
+ORDER BY
+ FIELD ( tpdm.productNo, 
+		<foreach collection="productNos" item="item" separator=",">
+			#{item}
+		</foreach>
+		)		
+</select>
+
 
 </mapper>
