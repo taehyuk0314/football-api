@@ -21,6 +21,7 @@ SELECT
 		,	tbdm.brandNm
 		,	tcdm.codeNm
 		,	tlkm.likeNo 
+		,	IF(tlkm.likeNo,1,0) AS isLiked 		
 FROM 
 			tbProductMaster tpdm
 LEFT JOIN	tbBrandMaster   tbdm ON tpdm.brandNo = tbdm.brandNo
