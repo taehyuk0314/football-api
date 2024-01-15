@@ -23,8 +23,31 @@ WHERE
 AND			tbmt.boardTypeCd = #{boardTypeCd}
 ORDER BY tbmt.regDt DESC
 </select>
-<!-- ugcs 조회 -->
-<select id="selectRecommnedUgcs" parameterType="com.football.api.biz.board.vo.UgcIVO" resultType="com.football.api.biz.board.vo.BoardUgcVO">
+
+<!-- ugc 상세 조회 -->
+<select id="selectUgc" parameterType="com.football.api.biz.board.vo.BoardUgcVO" resultType="com.football.api.biz.board.vo.BoardUgcVO">
+SELECT 
+			tbmt.boardNo
+		,	tbmt.boardTypeCd
+		,	tbmt.title
+		,	tbmt.contents
+		,	tbmt.viewType
+		,	tbmt.regUser
+		,	tbmt.regDt
+		,	tbmt.updUser
+		,	tbmt.updDt 
+		,	tbdc.useReply
+		,	tbdc.useNickname
+FROM 
+			tbBoardMaster tbmt 
+INNER JOIN  tbBoardUgc    tbdc	ON tbdc.boardNo = tbmt.boardNo
+WHERE
+			tbmt.boardNo = #{boardNo}
+AND			tbmt.viewType = '01'
+
+</select>
+<!-- ugcs 추천 조회 -->
+<select id="selectRecommendUgcs" parameterType="com.football.api.biz.board.vo.UgcIVO" resultType="com.football.api.biz.board.vo.BoardUgcVO">
 SELECT 
 			tbmt.boardNo
 		,	tbmt.boardTypeCd
@@ -84,4 +107,21 @@ INSERT INTO tbBoardUgc (
 	#{useNickname}
 )
 </insert>
+
+<!-- 상품 좋아요 카운트 증가 -->
+<update id="insertBoard" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
+UPDATE 	tbBoardMaster
+SET
+		likeCnt=likeCnt + 1
+WHERE 
+		boardNo=#{targetNo}
+</update>
+<!-- 상품 좋아요 카운트 증가 -->
+<update id="unLikeBoard" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
+UPDATE 	tbBoardMaster
+SET
+		likeCnt=likeCnt - 1
+WHERE 
+		boardNo=#{targetNo}
+</update>
 </mapper>

@@ -23,8 +23,8 @@ public class PaginationAdvice {
 				if(o instanceof PaginationIVO) {
 					PaginationIVO pvo = (PaginationIVO)o;
 					
-					int start = NumberUtils.createInteger( pvo.getPageStart() );
-					int length = NumberUtils.createInteger( pvo.getPageLength() );
+					int start = pvo.getPageStart();
+					int length = pvo.getPageLength();
 					
 					if(length == 0 ) {
 						length = 10; // TODO properties (기본 페이지 당 row 수)

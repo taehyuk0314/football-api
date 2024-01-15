@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 5000,
     "height": 5000,
-    "scrollTop": -1246.2000000000062,
-    "scrollLeft": -1094.1562499999993,
+    "scrollTop": -1193.4000000000053,
+    "scrollLeft": -860.5562499999994,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -1225,6 +1225,29 @@
             }
           },
           {
+            "id": "e3961370-afe6-4adb-9fba-fd215702d310",
+            "name": "likeCnt",
+            "comment": "좋아요 수",
+            "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
             "id": "f0af0cc0-f650-4085-8bb9-73f1e4b883d3",
             "name": "viewType",
             "comment": "보기타입",
@@ -1344,7 +1367,7 @@
           "active": false,
           "left": 362.40000000000003,
           "top": 1024.3380208333333,
-          "zIndex": 10,
+          "zIndex": 111,
           "widthName": 87.26171875,
           "widthComment": 70.61181640625
         },
@@ -2180,7 +2203,7 @@
           }
         ],
         "ui": {
-          "active": true,
+          "active": false,
           "left": 1391.1562,
           "top": 1302.2,
           "zIndex": 102,
@@ -2286,7 +2309,7 @@
             "3aa62428-6d13-492e-954d-0beaf898d4cf"
           ],
           "x": 775.0113281250001,
-          "y": 1161.3380208333333,
+          "y": 1171.5880208333333,
           "direction": "right"
         },
         "end": {
