@@ -21,6 +21,67 @@ INNER JOIN  tbBoardUgc    tbdc	ON tbdc.boardNo = tbmt.boardNo
 WHERE
 			tbmt.viewType = '01'
 AND			tbmt.boardTypeCd = #{boardTypeCd}
+ORDER BY tbmt.regDt DESC
 </select>
-
+<!-- ugcs 조회 -->
+<select id="selectRecommnedUgcs" parameterType="com.football.api.biz.board.vo.UgcIVO" resultType="com.football.api.biz.board.vo.BoardUgcVO">
+SELECT 
+			tbmt.boardNo
+		,	tbmt.boardTypeCd
+		,	tbmt.title
+		,	tbmt.contents
+		,	tbmt.viewType
+		,	tbmt.regUser
+		,	tbmt.regDt
+		,	tbmt.updUser
+		,	tbmt.updDt 
+		,	tbdc.useReply
+		,	tbdc.useNickname
+FROM 
+			tbRecommendMaster 	trcm	 
+INNER JOIN	tbBoardMaster 		tbmt 	ON trcm.targetNo = tbmt.boardNo  AND tbmt.boardTypeCd = '002001' AND tbmt.viewType = '01'
+INNER JOIN  tbBoardUgc    		tbdc	ON tbdc.boardNo = tbmt.boardNo
+WHERE
+			trcm.viewType = '01'
+AND 		trcm.targetTypeCd ='002001'	
+ORDER BY 
+	<if test="isRandom == 1" >
+	RAND(),
+	</if>	
+	trcm.sortNo ASC
+</select>
+<!-- BoardMasterVO 저장 -->
+<insert id="insertBoard" parameterType="com.football.api.biz.board.vo.BoardMasterVO" useGeneratedKeys="true" keyProperty="boardNo">
+INSERT INTO tbBoardMaster (
+	boardTypeCd,
+	title,
+	contents,
+	viewType,
+	viewCnt,
+	regUser,
+	regDt
+) VALUES (
+	#{boardTypeCd},
+	#{title},
+	#{contents},
+	'01',
+	0,
+	#{loginMemNo},
+	NOW()
+)
+</insert>
+<!-- BoardUgc 저장 -->
+<insert id="insertBoardUgc" parameterType="com.football.api.biz.board.vo.BoardUgcVO">
+INSERT INTO tbBoardUgc (
+	boardNo,
+	ugcTypeCd,
+	useReply,
+	useNickname
+) VALUES(
+	#{boardNo},
+	#{ugcTypeCd},
+	#{useReply},
+	#{useNickname}
+)
+</insert>
 </mapper>

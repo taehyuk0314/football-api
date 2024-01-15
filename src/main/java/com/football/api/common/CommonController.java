@@ -22,4 +22,13 @@ public class CommonController {
 	public List<CodeMasterVO>  selectCodeGroups(CodeMasterVO vo) {
 		return commonService.selectCodeGroups(vo);
 	}    
+	/**
+	 * 상품목록 조회
+	 * @param vo
+	 * @return
+	 */
+	@GetMapping("/code/{codeType}")
+	public List<CodeMasterVO>  selectCodes(CodeMasterVO vo) {
+		return commonService.selectCodes(vo);
+	}    
 }

@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.football.api.biz.board.vo.BoardMasterVO;
 import com.football.api.biz.board.vo.BoardUgcVO;
+import com.football.api.biz.board.vo.UgcIVO;
+import com.football.api.biz.board.vo.UgcVO;
 
 @RestController
 public class BoardController {
@@ -22,5 +25,24 @@ public class BoardController {
 	@GetMapping("/board/ugcs")
 	public List<BoardUgcVO> selectUgcs(BoardUgcVO vo) {
 		return boardService.selectUgcs(vo);
+	}  
+	
+	/**
+	 * 베스트 게시판 조회
+	 * @param vo
+	 * @return
+	 */
+	@GetMapping("/board/special-ugcs")
+	public UgcVO selectSpecialUgcs(UgcIVO vo) {
+		return boardService.selectSpecialUgcs(vo);
+	}    
+	/**
+	 * 게시판 작성
+	 * @param vo
+	 * @return
+	 */
+	@PostMapping("/board/ugc")
+	public int insertUgc(@RequestBody BoardUgcVO vo) {
+		return boardService.insertUgc(vo);
 	}    
 }
