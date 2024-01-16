@@ -9,6 +9,8 @@ SELECT
 		,	tbmt.title
 		,	tbmt.contents
 		,	tbmt.viewType
+		,	tbmt.likeCnt
+		,	tbmt.viewCnt	
 		,	tbmt.regUser
 		,	tbmt.regDt
 		,	tbmt.updUser
@@ -33,6 +35,8 @@ SELECT
 		,	tbmt.boardTypeCd
 		,	tbmt.title
 		,	tbmt.contents
+		,	tbmt.likeCnt
+		,	tbmt.viewCnt
 		,	tbmt.viewType
 		,	tbmt.regUser
 		,	tbmt.regDt
@@ -40,9 +44,15 @@ SELECT
 		,	tbmt.updDt 
 		,	tbdc.useReply
 		,	tbdc.useNickname
+		,	IF(tlkm.likeNo,1,0) AS isLiked 		
+		,	tmbm.nickNm
 FROM 
-			tbBoardMaster tbmt 
-INNER JOIN  tbBoardUgc    tbdc	ON tbdc.boardNo = tbmt.boardNo
+			tbBoardMaster 		tbmt 
+INNER JOIN  tbBoardUgc    		tbdc ON tbdc.boardNo = tbmt.boardNo
+INNER JOIN 	tbMemberMaster 		tmbm ON tmbm.memNo  = tbmt.regUser AND tmbm.viewType = '01'
+INNER JOIN  tbMemberProfile 	tmpf ON	tmpf.memNo = tmbm.memNo 
+INNER JOIN  tbProfileMaster  	tpfm ON tpfm.profileNo = tmpf.profileNo
+LEFT  JOIN  tbLIkeMaster  		tlkm ON tlkm.targetNo = tbmt.boardNo AND	tlkm.likeTypeCd = '003001' AND tlkm.regUser = #{loginMemNo}
 WHERE
 			tbmt.boardNo = #{boardNo}
 AND			tbmt.viewType = '01'
@@ -110,11 +120,32 @@ INSERT INTO tbBoardUgc (
 )
 </insert>
 
+<!-- BoardReply 저장 -->
+<insert id="insertBoardReply" parameterType="com.football.api.biz.board.vo.BoardReplyVO">
+INSERT INTO tbBoardReply (
+	boardNo,
+	parentNo,
+	title,
+	contents,
+	sortNo,
+	regUser,
+	regDt
+) VALUES (
+	#{boardNo},
+	#{parentNo},
+	#{title},
+	#{contents},
+	#{sortNo},
+	#{loginMemNo},
+	NOW()
+)
+</insert>
+
 <!-- 상품 좋아요 카운트 증가 -->
 <update id="likeBoard" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
 UPDATE 	tbBoardMaster
 SET
-		likeCnt=likeCnt + 1
+		likeCnt=IFNULL(likeCnt,0) + 1
 WHERE 
 		boardNo=#{targetNo}
 </update>

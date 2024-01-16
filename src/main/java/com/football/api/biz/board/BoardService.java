@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.football.api.biz.board.vo.BoardReplyVO;
 import com.football.api.biz.board.vo.BoardUgcVO;
 import com.football.api.biz.board.vo.UgcIVO;
 import com.football.api.biz.board.vo.UgcVO;
@@ -78,5 +79,14 @@ public class BoardService {
 	public int unLikeBoard(LikeMasterVO vo) {
 		likeMapper.deleteLike(vo);
 		return boardMapper.unLikeBoard(vo);
+	}	
+	
+    /**
+     * 댓글 작성
+     * @param vo
+     * @return
+     */    
+	public int insertReply(BoardReplyVO vo) {
+		return boardMapper.insertBoardReply(vo);
 	}	
 }

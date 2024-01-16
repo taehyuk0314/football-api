@@ -50,7 +50,13 @@ public class LoginService implements UserDetailsService {
         memberMapper.insertMemberPassword(vo);
         //회원마스터 수정(비밀번호 넘버 넣어주기)
         memberMapper.updateJoinMemberMaster(vo);
-
+        
+        //회원 프로필 저장
+        memberMapper.insertProfileMaster(vo);
+        
+        //멤버 프로필 저장
+        memberMapper.insertMemberProfile(vo);
+        
         return 1;
     }
    /**

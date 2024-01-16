@@ -85,7 +85,7 @@ AND			tpdo.productNo = #{productNo}
 <update id="likeProduct" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
 UPDATE 	tbProductMaster
 SET
-		likeCnt=likeCnt + 1
+		likeCnt=IFNULL(likeCnt,0) + 1
 WHERE 
 		productNo=#{targetNo}
 </update>

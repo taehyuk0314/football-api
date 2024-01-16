@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.football.api.biz.board.vo.BoardReplyVO;
 import com.football.api.biz.board.vo.BoardUgcVO;
 import com.football.api.biz.board.vo.UgcIVO;
 import com.football.api.biz.board.vo.UgcVO;
@@ -76,5 +77,14 @@ public class BoardController {
 	@DeleteMapping("/board/like")
 	public int unLikeBoard(LikeMasterVO vo) {
 		return boardService.unLikeBoard(vo);
-	}    	
+	}
+	/**
+	 * 댓글 달기
+	 * @param vo
+	 * @return
+	 */
+	@PostMapping("/board/reply")
+	public int insertReply(@RequestBody BoardReplyVO vo) {
+		return boardService.insertReply(vo);
+	}	
 }

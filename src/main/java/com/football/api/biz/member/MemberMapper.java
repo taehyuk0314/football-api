@@ -4,7 +4,9 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.football.api.biz.member.vo.MemberMasterVO;
 import com.football.api.biz.member.vo.MemberPasswordVO;
+import com.football.api.biz.member.vo.MemberProfileVO;
 import com.football.api.biz.member.vo.MemberVO;
+import com.football.api.biz.member.vo.ProfileMasterVO;
 
 
 @Mapper
@@ -29,6 +31,20 @@ public interface MemberMapper {
      * @return
      */
 	public int insertMemberPassword(MemberPasswordVO vo);    
+	
+	/**
+	 * memberProfile 저장
+	 * @param vo
+	 * @return
+	 */
+	public int insertMemberProfile(MemberProfileVO vo);    
+	
+	/**
+	 * profileMaster 저장
+	 * @param vo
+	 * @return
+	 */
+	public int insertProfileMaster(ProfileMasterVO vo);    
 
 	/**
      * 아이디 중복 체크

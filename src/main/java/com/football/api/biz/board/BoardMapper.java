@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.football.api.biz.board.vo.BoardMasterVO;
+import com.football.api.biz.board.vo.BoardReplyVO;
 import com.football.api.biz.board.vo.BoardUgcVO;
 import com.football.api.biz.board.vo.UgcIVO;
 import com.football.api.biz.member.vo.LikeMasterVO;
@@ -45,6 +46,13 @@ public interface BoardMapper {
 	 * @return
 	 */    
 	public int insertBoardUgc(BoardUgcVO vo);    
+	
+	/**
+	 * 댓글 작성
+	 * @param vo
+	 * @return
+	 */    
+	public int insertBoardReply(BoardReplyVO vo);    
     
     /**
      * ugc 좋아요 카운팅

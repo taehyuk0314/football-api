@@ -105,6 +105,7 @@ INNER JOIN	tbProductMaster tpdm ON tlkm.targetNo = tpdm.productNo
 LEFT JOIN	tbBrandMaster 	tbmd ON tbmd.brandNo  = tpdm.brandNo  
 WHERE 
 			tlkm.regUser = #{loginMemNo}
+AND			tlkm.likeTypeCd = '003002'
 </select>
 
 <!-- 좋아요 조회 -->

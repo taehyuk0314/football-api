@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 5000,
     "height": 5000,
-    "scrollTop": -1193.4000000000053,
-    "scrollLeft": -860.5562499999994,
-    "zoomLevel": 0.8,
+    "scrollTop": -1276.6000000000042,
+    "scrollLeft": -131.99999999999994,
+    "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -528,7 +528,7 @@
           "active": false,
           "left": 891.8227,
           "top": 132.7553,
-          "zIndex": 3,
+          "zIndex": 45,
           "widthName": 117.59716796875,
           "widthComment": 83.61181640625
         },
@@ -590,7 +590,7 @@
           "active": false,
           "left": 899.267,
           "top": 350.0265,
-          "zIndex": 1,
+          "zIndex": 92,
           "widthName": 97.3671875,
           "widthComment": 67
         },
@@ -625,6 +625,52 @@
             }
           },
           {
+            "id": "d3d55b6b-bb7a-4f8a-8cb0-ac9555fbcd9e",
+            "name": "footSize",
+            "comment": "발사이즈",
+            "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "556ae79a-081d-4501-8ab1-84eeb1370b3e",
+            "name": "postion",
+            "comment": "포지션",
+            "dataType": "CHAR(6)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
             "id": "5f84b32b-26d8-4fba-90ef-c79153cf8d21",
             "name": "introduction",
             "comment": "자기소개",
@@ -646,13 +692,36 @@
               "widthDataType": 102.1787109375,
               "widthDefault": 60
             }
+          },
+          {
+            "id": "5c5495fd-726b-44ed-b190-9a0b989e7050",
+            "name": "regDt",
+            "comment": "작성일",
+            "dataType": "DATETIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 60
+            }
           }
         ],
         "ui": {
           "active": false,
-          "left": 1349.7333,
-          "top": 353.938,
-          "zIndex": 2,
+          "left": 1483.0665,
+          "top": 311.2714,
+          "zIndex": 87,
           "widthName": 89.419921875,
           "widthComment": 83.61181640625
         },
@@ -942,9 +1011,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 819.5113,
-          "top": 616.3382,
-          "zIndex": 8,
+          "left": 766.1784,
+          "top": 571.0047,
+          "zIndex": 93,
           "widthName": 97.37353515625,
           "widthComment": 70.61181640625
         },
@@ -1365,9 +1434,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 362.40000000000003,
-          "top": 1024.3380208333333,
-          "zIndex": 111,
+          "left": 362.4,
+          "top": 1024.338,
+          "zIndex": 133,
           "widthName": 87.26171875,
           "widthComment": 70.61181640625
         },
@@ -1475,7 +1544,7 @@
           "active": false,
           "left": 883.4665,
           "top": 1060.7825,
-          "zIndex": 11,
+          "zIndex": 8,
           "widthName": 70.64990234375,
           "widthComment": 96.61181640625
         },
@@ -1606,7 +1675,7 @@
           "active": false,
           "left": 864.8748,
           "top": 1303.3049,
-          "zIndex": 55,
+          "zIndex": 10,
           "widthName": 76.419921875,
           "widthComment": 83.61181640625
         },
@@ -1829,7 +1898,7 @@
           "active": false,
           "left": 1322.9561,
           "top": 598.0222,
-          "zIndex": 7,
+          "zIndex": 6,
           "widthName": 95.9453125,
           "widthComment": 60
         },
@@ -2029,7 +2098,7 @@
           "active": false,
           "left": 1397.3562,
           "top": 1012.0227,
-          "zIndex": 41,
+          "zIndex": 9,
           "widthName": 77.130859375,
           "widthComment": 60
         },
@@ -2206,8 +2275,254 @@
           "active": false,
           "left": 1391.1562,
           "top": 1302.2,
-          "zIndex": 102,
+          "zIndex": 11,
           "widthName": 126.26806640625,
+          "widthComment": 70.61181640625
+        },
+        "visible": true
+      },
+      {
+        "id": "396d810d-26e4-46d2-a3ae-393c03e05911",
+        "name": "tbBoardReply",
+        "comment": "게시판 댓글",
+        "columns": [
+          {
+            "id": "43d749fc-19f4-4379-ae9a-299a9f3b3246",
+            "name": "replyNo",
+            "comment": "댓글번호",
+            "dataType": "INTEGER",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "41a3c3de-1817-47f0-8fe8-0eac5dd340d4",
+            "name": "boardNo",
+            "comment": "게시판 번호",
+            "dataType": "INTEGER",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 70.61181640625,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "eb2975ce-8ca0-4fd2-9fee-b68e30eef493",
+            "name": "parentNo",
+            "comment": "부모댓글번호",
+            "dataType": "INTEGER",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 80,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "f073e0e4-869a-49da-9d7f-75ef7c271a06",
+            "name": "title",
+            "comment": "제목",
+            "dataType": "VARCHAR(200)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "9d8cb0ea-aec9-437e-a08b-7961c610d277",
+            "name": "contents",
+            "comment": "내용",
+            "dataType": "VARCHAR(500)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "a200ac6f-5c8e-4d61-b1cc-681242764bda",
+            "name": "sortNo",
+            "comment": "순서",
+            "dataType": "INTEGER",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "cace32e4-ab65-4d26-990f-7d0d8e27eea7",
+            "name": "regUser",
+            "comment": "작성자",
+            "dataType": "INTEGER",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "1a4895ff-a5e8-4e7c-aa69-a5ba40476f13",
+            "name": "regDt",
+            "comment": "작성일",
+            "dataType": "DATETIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "c9d02cc1-f925-4206-a31c-b28bedb60ae2",
+            "name": "updUser",
+            "comment": "수정자",
+            "dataType": "INTEGER",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "7760e732-c4a0-459a-8206-35bc399fc5ea",
+            "name": "updDt",
+            "comment": "수정일",
+            "dataType": "DATETIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 60
+            }
+          }
+        ],
+        "ui": {
+          "active": true,
+          "left": 42.5557,
+          "top": 1325.9122,
+          "zIndex": 135,
+          "widthName": 80.76806640625,
           "widthComment": 70.61181640625
         },
         "visible": true
@@ -2291,8 +2606,8 @@
           "columnIds": [
             "6a89e815-1405-4e79-9721-816acbf3da3d"
           ],
-          "x": 1349.7333,
-          "y": 408.938,
+          "x": 1483.0665,
+          "y": 397.0214,
           "direction": "left"
         },
         "constraintName": "fk_tbmemberprofile_to_tbprofilemaster",
@@ -2308,8 +2623,8 @@
           "columnIds": [
             "3aa62428-6d13-492e-954d-0beaf898d4cf"
           ],
-          "x": 775.0113281250001,
-          "y": 1171.5880208333333,
+          "x": 775.011328125,
+          "y": 1171.588,
           "direction": "right"
         },
         "end": {
@@ -2334,8 +2649,8 @@
           "columnIds": [
             "a00e96ee-1a41-48e0-a916-46016ae35acb"
           ],
-          "x": 1231.6226281250001,
-          "y": 773.8382,
+          "x": 1178.289728125,
+          "y": 728.5047,
           "direction": "right"
         },
         "end": {
