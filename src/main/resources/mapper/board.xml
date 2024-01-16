@@ -15,9 +15,11 @@ SELECT
 		,	tbmt.updDt 
 		,	tbdc.useReply
 		,	tbdc.useNickname
+		,	IF(tlkm.likeNo,1,0) AS isLiked 
 FROM 
 			tbBoardMaster tbmt 
 INNER JOIN  tbBoardUgc    tbdc	ON tbdc.boardNo = tbmt.boardNo
+LEFT  JOIN  tbLIkeMaster  tlkm	ON tlkm.targetNo = tbmt.boardNo AND	tlkm.likeTypeCd = '003001' AND tlkm.regUser = #{loginMemNo}
 WHERE
 			tbmt.viewType = '01'
 AND			tbmt.boardTypeCd = #{boardTypeCd}
@@ -109,7 +111,7 @@ INSERT INTO tbBoardUgc (
 </insert>
 
 <!-- 상품 좋아요 카운트 증가 -->
-<update id="insertBoard" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
+<update id="likeBoard" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
 UPDATE 	tbBoardMaster
 SET
 		likeCnt=likeCnt + 1

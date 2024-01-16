@@ -1,13 +1,13 @@
 package com.football.api.biz.board.vo;
 
-import com.football.api.biz.member.vo.MemberVO;
+import com.football.api.biz.member.vo.LikeMasterVO;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class BoardMasterVO extends MemberVO{
+public class BoardMasterVO extends LikeMasterVO {
     /**
 	 * 
 	 */

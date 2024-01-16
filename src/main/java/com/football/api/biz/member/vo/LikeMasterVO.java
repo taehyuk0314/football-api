@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class LikeMasterVO extends MemberMasterVO {
+public class LikeMasterVO extends MemberVO {
 	/**
 	 * 
 	 */

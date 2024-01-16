@@ -6,6 +6,10 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ProfileMasterVO extends MemberProfileVO {
-    Integer profileNo;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	Integer profileNo;
     String introduction;
 }

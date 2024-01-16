@@ -76,7 +76,7 @@ public class BoardService {
 	 * @return
 	 */
 	public int unLikeBoard(LikeMasterVO vo) {
-		likeMapper.insertLike(vo);
+		likeMapper.deleteLike(vo);
 		return boardMapper.unLikeBoard(vo);
 	}	
 }
