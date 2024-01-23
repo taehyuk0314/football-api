@@ -11,4 +11,9 @@ import lombok.EqualsAndHashCode;
 public class PaginationIVO extends CommonVO {
 	Integer pageStart;
 	Integer pageLength;
+	
+	String startDt;
+	String endDt;
+	
+	String searchText;
 }

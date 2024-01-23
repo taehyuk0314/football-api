@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.football.api.biz.board.vo.BoardReplyVO;
 import com.football.api.biz.board.vo.BoardUgcVO;
-import com.football.api.biz.board.vo.UgcIVO;
+import com.football.api.biz.board.vo.BoardIVO;
 import com.football.api.biz.board.vo.UgcVO;
 import com.football.api.biz.like.LikeMapper;
 import com.football.api.biz.member.vo.LikeMasterVO;
@@ -34,7 +34,7 @@ public class BoardService {
      * @param vo
      * @return
      */    
-    public UgcVO selectSpecialUgcs(UgcIVO ivo) {
+    public UgcVO selectSpecialUgcs(BoardIVO ivo) {
     	UgcVO result = new UgcVO();
     	ivo.setPageLength(6);
     	ivo.setIsRandom(true);
@@ -86,7 +86,14 @@ public class BoardService {
      * @param vo
      * @return
      */    
-	public int insertReply(BoardReplyVO vo) {
+	public int insertBoardReply(BoardReplyVO vo) {
 		return boardMapper.insertBoardReply(vo);
+	}	
+
+	/**
+	 * ugc 댓글 조회
+	 */
+	public Page<BoardReplyVO> selectUgcReplies(BoardIVO vo) {
+		return boardMapper.selectUgcReplies(vo);
 	}	
 }

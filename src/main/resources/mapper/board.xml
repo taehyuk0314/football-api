@@ -59,7 +59,7 @@ AND			tbmt.viewType = '01'
 
 </select>
 <!-- ugcs 추천 조회 -->
-<select id="selectRecommendUgcs" parameterType="com.football.api.biz.board.vo.UgcIVO" resultType="com.football.api.biz.board.vo.BoardUgcVO">
+<select id="selectRecommendUgcs" parameterType="com.football.api.biz.board.vo.BoardIVO" resultType="com.football.api.biz.board.vo.BoardUgcVO">
 SELECT 
 			tbmt.boardNo
 		,	tbmt.boardTypeCd
@@ -120,7 +120,47 @@ INSERT INTO tbBoardUgc (
 )
 </insert>
 
-<!-- BoardReply 저장 -->
+<!-- 상품 좋아요 카운트 증가 -->
+<update id="likeBoard" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
+UPDATE 	tbBoardMaster
+SET
+		likeCnt=IFNULL(likeCnt,0) + 1
+WHERE 
+		boardNo=#{targetNo}
+</update>
+<!-- 상품 좋아요 카운트 증가 -->
+<update id="unLikeBoard" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
+UPDATE 	tbBoardMaster
+SET
+		likeCnt=likeCnt - 1
+WHERE 
+		boardNo=#{targetNo}
+</update>
+
+<!-- ugcs 댓글 조회 -->
+<select id="selectUgcReplies" parameterType="com.football.api.biz.board.vo.BoardIVO" resultType="com.football.api.biz.board.vo.BoardReplyVO">
+SELECT 
+			tbdr.replyNo
+		, 	tbdr.boardNo
+		, 	tbdr.parentNo
+		, 	tbdr.title
+		, 	tbdr.contents
+		, 	tbdr.sortNo
+		, 	tbdr.regUser
+		, 	tbdr.regDt
+		, 	tbdr.updUser
+		, 	tbdr.updDt
+FROM 
+			tbBoardReply 	tbdr
+INNER JOIN	tbBoardMaster 	tbdm ON tbdr.boardNo = tbdm.boardNo  
+WHERE 
+			tbdr.boardNo = #{boardNo}
+AND			tbdm.viewType = '01'
+ORDER BY 
+			tbdr.regDt ASC
+</select>
+
+<!-- BoardUgc 저장 -->
 <insert id="insertBoardReply" parameterType="com.football.api.biz.board.vo.BoardReplyVO">
 INSERT INTO tbBoardReply (
 	boardNo,
@@ -140,21 +180,4 @@ INSERT INTO tbBoardReply (
 	NOW()
 )
 </insert>
-
-<!-- 상품 좋아요 카운트 증가 -->
-<update id="likeBoard" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
-UPDATE 	tbBoardMaster
-SET
-		likeCnt=IFNULL(likeCnt,0) + 1
-WHERE 
-		boardNo=#{targetNo}
-</update>
-<!-- 상품 좋아요 카운트 증가 -->
-<update id="unLikeBoard" parameterType="com.football.api.biz.member.vo.LikeMasterVO">
-UPDATE 	tbBoardMaster
-SET
-		likeCnt=likeCnt - 1
-WHERE 
-		boardNo=#{targetNo}
-</update>
 </mapper>

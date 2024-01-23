@@ -25,6 +25,7 @@ public class BoardMasterVO extends LikeMasterVO {
     String regDt;
     Integer updUser;
     String updDt;
+    Boolean isApply;
     
     List<BoardReplyVO> replies;
 }

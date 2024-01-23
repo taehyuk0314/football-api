@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.football.api.biz.board.vo.BoardMasterVO;
 import com.football.api.biz.board.vo.BoardReplyVO;
 import com.football.api.biz.board.vo.BoardUgcVO;
-import com.football.api.biz.board.vo.UgcIVO;
+import com.football.api.biz.board.vo.BoardIVO;
 import com.football.api.biz.member.vo.LikeMasterVO;
 import com.github.pagehelper.Page;
 
@@ -24,7 +24,7 @@ public interface BoardMapper {
      * @param vo
      * @return
      */
-    public Page<BoardUgcVO> selectRecommendUgcs(UgcIVO vo);
+    public Page<BoardUgcVO> selectRecommendUgcs(BoardIVO vo);
     
     /**
     * ugc 상세
@@ -67,4 +67,9 @@ public interface BoardMapper {
      * @return
      */     
     public int unLikeBoard(LikeMasterVO vo);	
+    
+	/**
+	 * ugc 댓글 조회
+	 */
+	public Page<BoardReplyVO> selectUgcReplies(BoardIVO vo);
 }

@@ -8,7 +8,8 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class UgcIVO extends PaginationIVO {
+public class BoardIVO extends PaginationIVO {
+	Integer boardNo;
 	String ugcTypeCd;
 	Boolean isRandom;
 }
