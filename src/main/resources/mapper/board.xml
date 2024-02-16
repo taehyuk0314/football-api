@@ -150,9 +150,12 @@ SELECT
 		, 	tbdr.regDt
 		, 	tbdr.updUser
 		, 	tbdr.updDt
+		,	tmbm.nickNm
+		,	IF(tbdr.regUser = #{loginMemNo},1,0) AS isApply
 FROM 
 			tbBoardReply 	tbdr
-INNER JOIN	tbBoardMaster 	tbdm ON tbdr.boardNo = tbdm.boardNo  
+INNER JOIN	tbBoardMaster 	tbdm ON tbdr.boardNo = tbdm.boardNo 
+INNER JOIN  tbMemberMaster  tmbm ON tmbm.memNo = tbdr.regUser 
 WHERE 
 			tbdr.boardNo = #{boardNo}
 AND			tbdm.viewType = '01'

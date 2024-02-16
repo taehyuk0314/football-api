@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.football.api.biz.order.OrderMapper">
+<!-- 주문 조회 -->
+<select id="selectOrder" parameterType="com.football.api.biz.order.vo.OrderMasterVO" resultType="com.football.api.biz.order.vo.OrderVO">
+SELECT 
+			todm.orderNo
+		,	todm.orderType
+		,	todm.orderCnt
+		,	todm.orderPrice
+		,	todm.paymentType
+		,	todm.paymentTotalPrice
+		,	todm.addr
+		,	todm.addrDetail
+		,	todm.viewType
+		,	todm.regUser
+		,	todm.regDt
+		,	todm.updUser
+		,	todm.updDt
+FROM 
+			tbOrderMaster todm
+WHERE 
+			todm.orderNo = #{orderNo}
+AND			todm.viewType = '01'			
+</select>
+
+<!-- 주문 상품 조회 -->
+<select id="selectOrderProducts" parameterType="com.football.api.biz.order.vo.OrderMasterVO" resultType="com.football.api.biz.order.vo.OrderProductVO">
+SELECT 
+			todp.seq
+		,	todp.orderNo
+		,	todp.optionNo
+		,	todp.orderCnt
+		,	todp.optionNm
+		,	todp.productNm
+		,	todp.discountPrice
+		,	todp.discountRate
+		,	todp.totalPrice
+		,	todp.viewType
+		,	todp.regUser
+		,	todp.regDt
+		,	todp.updUser
+		,	todp.updDt
+
+		,	todm.orderType
+		,	todm.orderCnt
+		,	todm.orderPrice
+		,	todm.paymentType
+		,	todm.paymentTotalPrice
+		,	todm.addr
+		,	todm.addrDetail
+FROM 
+			tbOrderProduct  todp   
+INNER JOIN	tbOrderMaster   todm ON todp.orderNo = todm.orderNo 
+INNER JOIN  tbProductOption tpdo ON tpdo.optionNo = todp.optionNo  
+INNER JOIN  tbProductMaster tpdm ON tpdm.productNo = tpdo.productNo  
+WHERE 
+			todp.orderNo = #{orderNo}
+AND			todp.viewType = '01'	
+
+</select>
+
+
+<!-- orderMasterVO 저장 -->
+<insert id="insertOrder" parameterType="com.football.api.biz.order.vo.OrderMasterVO" useGeneratedKeys="true" keyProperty="orderNo">
+INSERT INTO tbOrderMaster (
+		orderType,
+		orderCnt,
+		orderPrice,
+		paymentType,
+		paymentTotalPrice,
+		addr,
+		addrDetail,
+		viewType,
+		regUser,
+		regDt
+) VALUES (
+		#{orderType},
+		#{orderCnt},
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		'01',
+		#{loginMemNo},
+		NOW()
+)
+</insert>
+<!-- orderProductVO 저장 -->
+<insert id="insertOrderProduct" parameterType="com.football.api.biz.order.vo.OrderProductVO">
+INSERT INTO tbOrderProduct (
+	orderNo,
+	optionNo,
+	orderCnt,
+	optionNm,
+	productNm,
+	discountPrice,
+	discountRate,
+	totalPrice,
+	viewType,
+	regUser,
+	regDt
+) 
+SELECT 
+	#{orderNo},
+	tpdo.optionNo,
+	#{orderCnt},
+	tpdo.optionNm,
+	tpdm.productNm,
+	NULL,
+	NULL,
+	tpdm.totalPrice,
+	'01',
+	#{loginMemNo},
+	NOW()
+FROM	
+				tbProductOption tpdo 
+INNER jOIN		tbProductMaster tpdm ON tpdo.productNo = tpdm.productNo 
+WHERE 	tpdo.optionNo = #{optionNo}
+</insert>
+</mapper>
