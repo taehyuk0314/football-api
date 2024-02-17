@@ -41,4 +41,15 @@ public class OrderService {
     	return vo.getOrderNo();
     }
     
+    /**
+     * 주문 채결
+     * @param vo
+     * @return
+     */
+    public int updateOrder(OrderVO vo) {
+    	//주문 채결 코드
+    	vo.setOrderType("009002");
+    	return orderMapper.updateOrder(vo);
+    }
+    
 }

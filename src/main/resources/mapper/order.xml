@@ -21,7 +21,9 @@ FROM
 			tbOrderMaster todm
 WHERE 
 			todm.orderNo = #{orderNo}
-AND			todm.viewType = '01'			
+AND			todm.viewType = '01'	
+AND			todm.orderType = '009001'
+AND			todm.regUser =#{loginMemNo}		
 </select>
 
 <!-- 주문 상품 조회 -->
@@ -87,6 +89,20 @@ INSERT INTO tbOrderMaster (
 		NOW()
 )
 </insert>
+<update id="updateOrder" parameterType="com.football.api.biz.order.vo.OrderMasterVO">
+UPDATE tbOrderMaster SET
+		orderType = #{orderType},
+		orderPrice = #{orderPrice},
+		paymentType = #{paymentType},
+		paymentTotalPrice = #{paymentTotalPrice},
+		addr = #{addr},
+		addrDetail = #{addrDetail},
+		updUser = #{loginMemNo},
+		updDt = NOW()
+WHERE
+		orderNo = #{orderNo}
+AND		regUser = #{loginMemNo}	
+</update>
 <!-- orderProductVO 저장 -->
 <insert id="insertOrderProduct" parameterType="com.football.api.biz.order.vo.OrderProductVO">
 INSERT INTO tbOrderProduct (

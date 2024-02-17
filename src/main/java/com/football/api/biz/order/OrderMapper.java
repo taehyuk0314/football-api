@@ -36,6 +36,13 @@ public interface OrderMapper {
      public int insertOrder(OrderMasterVO vo);
      
      /**
+      * 주문 수정
+      * @param vo
+      * @return
+      */
+     public int updateOrder(OrderMasterVO vo);
+     
+     /**
       * 주문상품 저장
       * @param vo
       * @return

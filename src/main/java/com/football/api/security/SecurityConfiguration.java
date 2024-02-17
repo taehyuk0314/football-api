@@ -55,7 +55,7 @@ public class SecurityConfiguration {
     			)	
     		)            
             .authorizeHttpRequests((authz) -> authz
-    		.requestMatchers("/mypage/**").hasAnyAuthority(Constants.ROLE_MEMBER)
+    		.requestMatchers("/mypage/**","/order/**","/order").hasAnyAuthority(Constants.ROLE_MEMBER)
             .anyRequest().permitAll()
             )
             .logout(AbstractHttpConfigurer::disable)

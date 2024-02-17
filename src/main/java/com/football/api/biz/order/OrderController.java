@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,6 +38,16 @@ public class OrderController {
 	@PostMapping("/order")
 	public int insertOrder(@RequestBody OrderVO vo) {
 		return orderService.insertOrder(vo);
+	}   
+	
+	/**
+	 * 주문 결제
+	 * @param vo
+	 * @return
+	 */
+	@PutMapping("/order/{orderNo}")
+	public int updateOrder(@RequestBody OrderVO vo) {
+		return orderService.updateOrder(vo);
 	}   
 	
 
