@@ -142,5 +142,63 @@ ORDER BY
 		)		
 </select>
 
-
+<!-- 주소록 신규 등록 -->
+<insert id="insertMemberDelivery" parameterType="com.football.api.biz.member.vo.MemberDeliveryVO">
+INSERT INTO tbMemberDelivery (
+	memNo,
+	postNo,
+	addr,
+	addrDetail,
+	addrSerialNo,
+	addrType,
+	recvNm,
+	hpNo,
+	city,
+	defaultDlvryYn,
+	viewType,
+	regUser,
+	regDt
+) VALUES (
+	#{loginMemNo},
+	#{postNo},
+	#{addr},
+	#{addrDetail},
+	#{addrSerialNo},
+	#{addrType},
+	#{recvNm},
+	#{hpNo},
+	#{city},
+	#{defaultDlvryYn},
+	'01',
+	#{loginMemNo},
+	NOW()
+)
+</insert>
+<!-- 배송지 조회 -->
+<select id="selectMemberDelivery" parameterType="com.football.api.biz.member.vo.MemberMasterVO" resultType="com.football.api.biz.member.vo.MemberDeliveryVO">
+SELECT
+			tmbd.deliveryNo
+		,	tmbd.memNo
+		,	tmbd.postNo
+		,	tmbd.addr
+		,	tmbd.addrDetail
+		,	tmbd.addrSerialNo
+		,	tmbd.addrType
+		,	tmbd.recvNm
+		,	tmbd.hpNo
+		,	tmbd.city
+		,	tmbd.defaultDlvryYn
+		,	tmbd.viewType
+		,	tmbd.regUser
+		,	tmbd.regDt
+		,	tmbd.updUser
+		,	tmbd.updDt
+		
+		,	tmbm.memNm
+FROM
+			tbMemberDelivery tmbd  
+INNER JOIN  tbMemberMaster   tmbm ON tmbm.memNo = tmbd.memNo
+WHERE
+		tmbd.memNo = #{loginMemNo}
+</select>
 </mapper>

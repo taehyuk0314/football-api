@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.football.api.biz.member.vo.CartMasterVO;
+import com.football.api.biz.member.vo.MemberDeliveryVO;
+import com.football.api.biz.member.vo.MemberMasterVO;
 import com.football.api.biz.member.vo.MemberVO;
 import com.football.api.biz.mypage.vo.CartIVO;
 
@@ -67,5 +69,25 @@ public class MypageController {
 	public List<CartMasterVO> selectRecentProducts(@RequestBody List<Integer> vo) {
 		System.out.println(vo);
 		return mypageService.selectRecentProducts(vo);
+	} 	
+	
+	/**
+	 * 주소 등록
+	 * @param vo
+	 * @return
+	 */
+	@PostMapping("/mypage/delivery")
+	public int insertMemberDelivery(@RequestBody MemberDeliveryVO vo) {
+		return mypageService.insertMemberDelivery(vo);
+	} 	
+	
+	/**
+	 * 주소 리스트 
+	 * @param vo
+	 * @return
+	 */
+	@GetMapping("/mypage/deliveries")
+	public List<MemberDeliveryVO> selectMemberDelivery(MemberMasterVO vo) {
+		return mypageService.selectMemberDelivery(vo);
 	} 	
 }

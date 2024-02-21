@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.football.api.biz.member.vo.CartMasterVO;
+import com.football.api.biz.member.vo.MemberDeliveryVO;
+import com.football.api.biz.member.vo.MemberMasterVO;
 import com.football.api.biz.member.vo.MemberVO;
 import com.football.api.biz.mypage.vo.CartIVO;
 
@@ -52,4 +54,18 @@ public interface MypageMapper {
       * @return
       */    
      public List<CartMasterVO> selectRecentProducts(CartIVO vo);     
+     
+ 	/**
+ 	 * 주소 등록
+ 	 * @param vo
+ 	 * @return
+ 	 */
+ 	public int insertMemberDelivery(MemberDeliveryVO vo);
+ 	
+	/**
+	 * 주소 리스트 
+	 * @param vo
+	 * @return
+	 */
+	public List<MemberDeliveryVO> selectMemberDelivery(MemberMasterVO vo);
 }

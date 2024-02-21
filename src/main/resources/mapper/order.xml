@@ -10,15 +10,19 @@ SELECT
 		,	todm.orderPrice
 		,	todm.paymentType
 		,	todm.paymentTotalPrice
-		,	todm.addr
-		,	todm.addrDetail
 		,	todm.viewType
 		,	todm.regUser
 		,	todm.regDt
 		,	todm.updUser
 		,	todm.updDt
+		
+		,	tmbd.addrDetail
+		,	tmbd.addr
+		,	tmbd.hpNo		
+		,	tmbd.recvNm		
 FROM 
 			tbOrderMaster todm
+LEFT JOIN   tbMemberDelivery tmbd ON todm.regUser = tmbd.memNo  AND tmbd.defaultDlvryYn = 1			
 WHERE 
 			todm.orderNo = #{orderNo}
 AND			todm.viewType = '01'	

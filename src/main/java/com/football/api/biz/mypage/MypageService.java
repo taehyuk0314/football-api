@@ -7,9 +7,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import com.football.api.biz.member.vo.CartMasterVO;
+import com.football.api.biz.member.vo.MemberDeliveryVO;
+import com.football.api.biz.member.vo.MemberMasterVO;
 import com.football.api.biz.member.vo.MemberVO;
 import com.football.api.biz.mypage.vo.CartIVO;
 
@@ -82,4 +83,22 @@ public class MypageService {
 		
 		return mypageMapper.selectRecentProducts(vo);		
     }    
+    
+	/**
+	 * 주소 등록
+	 * @param vo
+	 * @return
+	 */
+	public int insertMemberDelivery(MemberDeliveryVO vo) {
+		return mypageMapper.insertMemberDelivery(vo);
+	} 	    
+	
+	/**
+	 * 주소 리스트 
+	 * @param vo
+	 * @return
+	 */
+	public List<MemberDeliveryVO> selectMemberDelivery(MemberMasterVO vo) {
+		return mypageMapper.selectMemberDelivery(vo);
+	} 	
 }
